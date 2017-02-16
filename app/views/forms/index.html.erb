@@ -1,0 +1,50 @@
+<body style="background-color:pink;">
+<style>
+
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+
+  td, th {
+    border: 1px solid blueviolet;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: darkgrey;
+  }
+</style>
+</body>
+<h1 style="color:darkred;">Listing of Members</h1>
+
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>password</th>
+    <th>Address</th>
+
+  </tr>
+
+
+  <% @form.each do |form| %>
+      <tr>
+        <td><%= form.firstname %></td>
+        <td><%= form.lastname %></td>
+        <td><%= form.email %></td>
+        <td><%= form.password %></td>
+        <td><%= form.address %></td>
+        <td><%= link_to 'Show', form_path(form) %></td>
+      </tr>
+  <% end %> <br>
+  <%= link_to 'New Entry', new_form_path %><br><br><br>
+
+</table>

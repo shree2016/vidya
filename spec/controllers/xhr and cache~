@@ -1,0 +1,41 @@
+alias for xml_http_request?
+    Update a web page without reloading the page
+    Request data from a server after the page has loaded
+    Receive data from a server after the page has loaded
+    Send data to a server in the background
+
+
+
+######Caching 
+http://guides.rubyonrails.org/v2.3.11/caching_with_rails.html
+ Page Caching
+
+class ProductsController < ActionController
+
+  caches_page :index
+
+  def index; end
+
+  def create
+    expire_page :action => :index
+  end
+
+end
+
+ Action Caching
+class ProductsController < ActionController
+
+  before_filter :authenticate, :only => [ :edit, :create ]
+  caches_page :index
+  caches_action :edit
+
+  def index; end
+
+  def create
+    expire_page :action => :index
+    expire_action :action => :edit
+  end
+
+  def edit; end
+
+end

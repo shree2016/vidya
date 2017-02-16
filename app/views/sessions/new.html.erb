@@ -1,0 +1,28 @@
+
+
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+    background-image: url("http://airwheelx.com/wp-content/uploads/2014/11/web-background-images-hd-wallpapers-res-wallpaper-web-page-background-design-blue-pattern-white-cute-hijau-images-hd-wallpapers.jpg");
+    background-repeat: no-repeat;
+    background-size: 250% 350%;
+  }
+</style>
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+
+    Email: <%= text_field_tag :email %><br><br><br>
+
+    Password: <%= password_field_tag :password %><br><br><br>
+
+
+    <%= submit_tag "Submit" %><br><br>
+    <%= link_to 'Back', forms_new_path %>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+<% end %>
+</html>

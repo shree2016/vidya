@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2FvhWnqdGrNmK2nrquFHZLrP3hYPUbSVOrM8znbvN0wOrck-ff1TbeMU");
+background-repeat: no-repeat;
+background-size: 200% 200%;
+}
+
+textarea {
+  width: 15%;
+  heigth:35;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+
+<%= form_for :form, url: forms_path do |f| %>
+
+
+    <%= form_for @form do |f| %>
+        <% if @form.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@form.errors.count, "error") %> prohibited
+                this Form from being saved:</h2>
+              <ul>
+                <% @form.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li><br><br>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+
+
+    <marquee direction="right"><i><h1 style="color:orangered;">Get Registered and Enjoy Learing</h1></marquee>
+    <body style="background-color:powderblue;">
+    <p><h3><i>Welcome</i></h3></p>
+    <p></p>
+<center>
+    <p>
+      <i>Firstname</i><br>
+      <%= f.text_field :firstname %>
+
+    </p>
+    <p>
+      <i> Lastname</i><br>
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <i> Email</i><br>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <i> Password</i><br>
+      <%= f.password_field :password %>
+
+
+    <p>
+     <i> Address</i><br>
+      <%= f.text_area :address %>
+    </p>
+
+    <p>
+      <%= f.submit :signup %>
+
+    </p>
+
+<% end %>
+<% end %>
+
+
+<i><%= link_to 'Log_in', login_path %></i>
+</center>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+</html>

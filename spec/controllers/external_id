@@ -1,0 +1,8 @@
+This is to add the external_id...
+it is the primary key with id
+sequential creation happens...of the below queries
+
+
+add_column :know_how_editions, :external_id, :integer
+execute %Q{CREATE SEQUENCE know_how_editions_external_id_seq START 1000000}
+execute %Q{ALTER TABLE know_how_editions ALTER COLUMN external_id SET DEFAULT NEXTVAL('know_how_editions_external_id_seq')}
